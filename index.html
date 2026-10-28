@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PTVA Output — PDF Website</title>
+  <meta name="description" content="A web version of the uploaded 16-page PDF, preserving each page's original appearance.">
+  <style>
+    :root { color-scheme: dark; --bg: #111318; --panel: #1c2028; --text: #f2f4f8; --muted: #aeb5c2; --accent: #80b7ff; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    header { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; background: rgba(28,32,40,.96); border-bottom: 1px solid #343a46; backdrop-filter: blur(10px); }
+    .brand { font-weight: 700; letter-spacing: .2px; }
+    .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    button, a.control { color: var(--text); background: #303846; border: 1px solid #4a5568; padding: 8px 11px; border-radius: 8px; font: inherit; font-size: 14px; cursor: pointer; text-decoration: none; }
+    button:hover, a.control:hover { background: #3b4658; }
+    .progress-wrap { height: 3px; background: #292e38; }
+    #progress { width: 0; height: 100%; background: var(--accent); transition: width .1s linear; }
+    main { width: min(1100px, 100%); margin: 0 auto; padding: 22px 14px 50px; }
+    .intro { color: var(--muted); margin: 0 0 18px; font-size: 14px; }
+    .pdf-page { margin: 0 auto 24px; max-width: 100%; }
+    .pdf-page img { display: block; width: 100%; height: auto; background: white; box-shadow: 0 8px 30px rgba(0,0,0,.3); border-radius: 3px; }
+    .page-label { text-align: center; color: var(--muted); font-size: 12px; padding: 8px 0 0; }
+    footer { text-align: center; color: var(--muted); padding: 24px 14px 36px; font-size: 13px; }
+    @media (max-width: 600px) { header { align-items: flex-start; } .brand { width: 100%; } button, a.control { padding: 7px 9px; } main { padding: 12px 7px 30px; } .pdf-page { margin-bottom: 17px; } }
+    @media print { body { background: white; color: black; } header, .intro, .page-label, footer, .progress-wrap { display: none !important; } main { width: 100%; padding: 0; } .pdf-page { margin: 0; break-after: page; page-break-after: always; } .pdf-page img { box-shadow: none; border-radius: 0; width: 100%; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">PTVA Output <span style="color:var(--muted);font-weight:400">· PDF website</span></div>
+    <nav class="controls" aria-label="Page controls">
+      <button type="button" id="prev">← Previous</button>
+      <label for="pageSelect" style="font-size:14px">Page</label>
+      <select id="pageSelect" style="background:#303846;color:var(--text);border:1px solid #4a5568;padding:8px;border-radius:8px"><option value="1">1 / 16</option><option value="2">2 / 16</option><option value="3">3 / 16</option><option value="4">4 / 16</option><option value="5">5 / 16</option><option value="6">6 / 16</option><option value="7">7 / 16</option><option value="8">8 / 16</option><option value="9">9 / 16</option><option value="10">10 / 16</option><option value="11">11 / 16</option><option value="12">12 / 16</option><option value="13">13 / 16</option><option value="14">14 / 16</option><option value="15">15 / 16</option><option value="16">16 / 16</option></select>
+      <button type="button" id="next">Next →</button>
+      <button type="button" id="print">Print / Save PDF</button>
+      <a class="control" href="assets/page-01.png" download>Download page image</a>
+    </nav>
+  </header>
+  <div class="progress-wrap"><div id="progress"></div></div>
+  <main>
+    <p class="intro">Original page appearance preserved as page images. Scroll through all 16 pages, jump to a page, or use Print / Save PDF.</p>
+    
+      <section class="pdf-page" id="page-1" aria-label="PDF page 1">
+        <img src="assets/page-01.png" alt="Page 1 of the original PDF" loading="lazy">
+        <div class="page-label">Page 1 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-2" aria-label="PDF page 2">
+        <img src="assets/page-02.png" alt="Page 2 of the original PDF" loading="lazy">
+        <div class="page-label">Page 2 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-3" aria-label="PDF page 3">
+        <img src="assets/page-03.png" alt="Page 3 of the original PDF" loading="lazy">
+        <div class="page-label">Page 3 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-4" aria-label="PDF page 4">
+        <img src="assets/page-04.png" alt="Page 4 of the original PDF" loading="lazy">
+        <div class="page-label">Page 4 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-5" aria-label="PDF page 5">
+        <img src="assets/page-05.png" alt="Page 5 of the original PDF" loading="lazy">
+        <div class="page-label">Page 5 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-6" aria-label="PDF page 6">
+        <img src="assets/page-06.png" alt="Page 6 of the original PDF" loading="lazy">
+        <div class="page-label">Page 6 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-7" aria-label="PDF page 7">
+        <img src="assets/page-07.png" alt="Page 7 of the original PDF" loading="lazy">
+        <div class="page-label">Page 7 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-8" aria-label="PDF page 8">
+        <img src="assets/page-08.png" alt="Page 8 of the original PDF" loading="lazy">
+        <div class="page-label">Page 8 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-9" aria-label="PDF page 9">
+        <img src="assets/page-09.png" alt="Page 9 of the original PDF" loading="lazy">
+        <div class="page-label">Page 9 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-10" aria-label="PDF page 10">
+        <img src="assets/page-10.png" alt="Page 10 of the original PDF" loading="lazy">
+        <div class="page-label">Page 10 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-11" aria-label="PDF page 11">
+        <img src="assets/page-11.png" alt="Page 11 of the original PDF" loading="lazy">
+        <div class="page-label">Page 11 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-12" aria-label="PDF page 12">
+        <img src="assets/page-12.png" alt="Page 12 of the original PDF" loading="lazy">
+        <div class="page-label">Page 12 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-13" aria-label="PDF page 13">
+        <img src="assets/page-13.png" alt="Page 13 of the original PDF" loading="lazy">
+        <div class="page-label">Page 13 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-14" aria-label="PDF page 14">
+        <img src="assets/page-14.png" alt="Page 14 of the original PDF" loading="lazy">
+        <div class="page-label">Page 14 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-15" aria-label="PDF page 15">
+        <img src="assets/page-15.png" alt="Page 15 of the original PDF" loading="lazy">
+        <div class="page-label">Page 15 of 16</div>
+      </section>
+
+      <section class="pdf-page" id="page-16" aria-label="PDF page 16">
+        <img src="assets/page-16.png" alt="Page 16 of the original PDF" loading="lazy">
+        <div class="page-label">Page 16 of 16</div>
+      </section>
+  </main>
+  <footer>Web version of the uploaded PDF · 16 pages</footer>
+  <script>
+    const select = document.getElementById('pageSelect');
+    const pages = [...document.querySelectorAll('.pdf-page')];
+    function goToPage(n) {
+      const clamped = Math.max(1, Math.min(pages.length, Number(n) || 1));
+      select.value = String(clamped);
+      pages[clamped - 1].scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+    select.addEventListener('change', () => goToPage(select.value));
+    document.getElementById('prev').addEventListener('click', () => goToPage(Number(select.value) - 1));
+    document.getElementById('next').addEventListener('click', () => goToPage(Number(select.value) + 1));
+    document.getElementById('print').addEventListener('click', () => window.print());
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('progress').style.width = (max > 0 ? window.scrollY / max * 100 : 0) + '%';
+      let current = 1;
+      for (let i = 0; i < pages.length; i++) {
+        if (pages[i].getBoundingClientRect().top < window.innerHeight * 0.45) current = i + 1;
+      }
+      select.value = String(current);
+    }, {passive: true});
+  </script>
+</body>
+</html>
